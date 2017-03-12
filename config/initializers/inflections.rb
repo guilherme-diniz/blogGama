@@ -14,3 +14,8 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+ ActiveSupport::Inflector.inflections do |inflect|
+  inflect.plural "Quarta", "Quartas"
+  inflect.plural "Quinta", "Quintas"
+  inflect.plural "Sexta", "Sextas"
+end

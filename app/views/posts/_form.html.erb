@@ -1,0 +1,107 @@
+<%= form_for @post,  html: {class: "form-horizontal", multipart: true} do |f|%>
+  <div class="form-group">
+    <label for="title" class="col-sm-3 control-label">
+      <strong>Título</strong>
+      <br>
+      <small class="text-muted">
+        Escreva o título do post
+      </small>
+    </label>
+
+    <div class="col-sm-9">
+      <%= f.text_field :title, class: "form-control", required: true, title:"O título é obrigatório e precisa de no mí­nimo 5 caracteres" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="main_image" class="col-sm-3 control-label">
+      <strong>Imagem principal</strong>
+      <br>
+      <small class="text-muted">
+        Selecione a imagem que aparecerá no <strong>banner</strong> do seu anúncio
+      </small>
+    </label>
+
+    <div class="col-sm-9">
+      <%= f.file_field :main_image, class: "form-control", accept:"image/jpg,image/jpeg,image/png,image/gif" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="tags" class="col-sm-3 control-label">
+      <strong>Tags</strong>
+      <br>
+      <small class="text-muted">
+        Tags do post
+      </small>
+    </label>
+
+    <div class="col-sm-9">
+      <%= f.text_field :tag_list, class: "form-control", 'data-role' =>'tagsinput' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description" class="col-sm-3 control-label">
+      <strong>Descrição</strong>
+      <br>
+      <small class="text-muted">
+        Pequena descrição do post (resumo)
+      </small>
+    </label>
+
+    <div class="col-sm-9">
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="author" class="col-sm-3 control-label">
+      <strong>Autor</strong>
+      <br>
+      <small class="text-muted">
+        Digite o nome do autor
+      </small>
+    </label>
+
+    <div class="col-sm-9">
+      <%= f.text_field :author, class: "form-control", required: true, title:"O autor do post é obrigatório e precisa de no mí­nimo 5 caracteres" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+  <label for="content" class="col-sm-3 control-label">
+    <strong>Texto</strong>
+    <br>
+    <small class="text-muted">
+      Digite o conteúdo do seu anúncio
+    </small>
+  </label>
+
+  <div class="col-sm-9">
+    <%= f.text_area :content, class: "tinymce", rows: 40, cols: 120 %>
+    <%= tinymce language: "pt_BR" %>
+  </div>
+</div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <div class="radio">
+        <label>
+          <%= f.radio_button :active, true %> Postar agora
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <%= f.radio_button :active, false %>Postar depois
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+        <%= f.submit (@post.new_record? ? "Criar" : "Atualizar") , class: "btn btn-vita btn-vita-success" %>
+    </div>
+  </div>
+<% end %>

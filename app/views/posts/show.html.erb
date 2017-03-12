@@ -1,0 +1,17 @@
+<% if @post.main_image.present? %>
+  <header style="background: url(<%= @post.main_image(:big) %>) no-repeat center center">
+    <div class="content-titles">
+      <h1><%= @post.title %></h1>
+      <h2><%= @post.description %></h2>
+    </div>
+  </header>
+<% end %>
+
+<section id="content-blog">
+  <% unless @post.main_image.present? %>
+    <h1 class="blog-title"><%= @post.title %></h1>
+    <h2 class="blog-subtitle"><%= @post.description %></h2>
+  <% end %>
+  <%= render_shareable buttons: ['twitter', 'facebook', 'google_plus'], :turbolinks => true %>
+  <%= @post.content.html_safe if @post.content %>
+</section>
