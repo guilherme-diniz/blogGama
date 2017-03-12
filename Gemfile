@@ -2,11 +2,8 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
-# Use sqlite3 as the database for Active Record
+gem 'rails', '5.0.0'
 gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -23,6 +20,33 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'mongoid', '~> 6.1.0'
+
+gem 'devise'
+
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
+gem 'jquery-turbolinks'
+gem 'font-awesome-rails'
+
+gem "therubyracer"
+gem 'sass-rails', "5.0.6"
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'autoprefixer-rails'
+gem 'compass-rails'
+gem 'json'
+gem 'bootstrap-tagsinput-rails'
+gem 'select2-rails'
+gem 'twitter-bootswatch-rails'
+gem 'twitter-bootswatch-rails-helpers'
+gem "jquery-fileupload-rails"
+gem 'jquery-datetimepicker-rails'
+gem "mongoid-enum", git: 'git://github.com/monster-media/mongoid-enum.git'
+gem 'sprockets', '~> 3.6.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -39,7 +63,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

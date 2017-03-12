@@ -1,0 +1,87 @@
+<section id="posts">
+  <% if @posts.present? %>
+  <div class="row">
+    <div class="col-sm-8">
+      <% @posts.each do |post| %>
+        <div class="posts">
+          <div class="meta-post">
+            <!-- <div class="meta-post-avatar">
+              <%#= image_tag "https://d262ilb51hltx0.cloudfront.net/fit/c/40/40/0*UirnL0TcRuubLha4.JPG" %>
+            </div> -->
+            <div class="meta-post-info">
+              <a href="#"><%= post.author %></a>
+
+              <span>
+                <a href="">
+                  <%= PostsHelper.string_posted_time post %> atrás
+                </a>
+              </span>
+            </div>
+          </div>
+
+          <% if post.main_image.present? %>
+            <div class="image-post" style="background: url(<%= post.main_image(:big) %>) no-repeat center center"></div>
+          <% end %>
+
+          <h2><%= link_to "#{post.title}", "/blogs/#{post.id}" %></h2>
+          <p class="post-text"><%= truncate(post.content, length: 440, omission: '...', escape: false) %></p>
+          <%= link_to "Continue lendo", "/blogs/#{post.id}", class: "continue-reading" %>
+
+          <span class="post-comments" data-no-turbolink><i class="icon-comment"></i> <% if Rails.env.development? %><span class="fb-comments-count" data-href="http://localhost:3000/blogs/<%= post.id %>"></span><% end %><% if Rails.env.production? %><span class="fb-comments-count" data-href="http://vitadelrei.com.br/blogs/<%= post.id %>"></span><% end %></span>
+          <span class="post-views"><i class="icon-eye-view"></i> <%= post.views %></span>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="posts-meta-tags">
+        <% if PostsHelper::can_shoot_tags? %>
+          <h4 style="font-size: 11px;text-transform:uppercase;font-weight:900;letter-spacing:0.5px; padding-top: 10px;padding-bottom: 10px">
+            Tags
+          </h4>
+
+          <div class="post-tags">
+            <% PostsHelper::can_shoot_tags?.each do |tag| %>
+              <span class="label label-primary"><%= tag %></span>
+            <% end %>
+          </div>
+        <% end %>
+
+        <br>
+
+        <h4 style="font-size: 11px;text-transform:uppercase;font-weight:900;letter-spacing:0.5px;border-top: solid 1px #CCC;padding-top: 10px;padding-bottom: 10px">
+          Mais visualizados
+        </h4>
+
+        <ul>
+          <% @posts.order_by(:views.desc)[0..5].each_with_index do |post, index| %>
+            <li class="top-posts-li">
+              <div class="top-posts-li-content">
+                <div class="top-posts-number">
+                  <div class="post-count">
+                    <%= index+1 %>
+                  </div>
+                </div>
+                <div class="top-posts-content" style="position: absolute;top: 5px;left: 55px;">
+                  <h3 style="font-size: 14px;font-weight: 400;line-height: 1.2em;margin: 0;">
+                    <%= link_to post.title, posts_show_path(post.id) %>
+                  </h3>
+                  <p style="line-height: 1.1em;font-size:12px;color:#777">
+                    <%= post.author %>
+                  </p>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <section id="hightlights-no-events" class="panel">
+      <div class="panel-body">
+        Em breve estaremos cheios de novidades nessa página. Aguarde :)
+      </div>
+    </section>
+  <% end %>
+</section>

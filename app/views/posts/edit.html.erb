@@ -1,0 +1,21 @@
+<div id="list">
+  <div id="middle">
+    <%= tinymce_assets %>
+
+    <div class="form-crud">
+      <div class="row form-title-area">
+        <div class="col-xs-9">
+          <h3> Blog / Editar </h3>
+        </div>
+
+        <div class="col-xs-3">
+          <%= link_to posts_new_path do %>
+              <button class="btn btn-xs btn-vita btn-vita-default btn-new">Novo </button>
+          <% end %>
+        </div>
+      </div>
+
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
