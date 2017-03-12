@@ -4,13 +4,15 @@ Rails.application.routes.draw do
  match "signout", to: "sessions#destroy", via: [:get, :post]
 
  scope '/admin' do
-    get '/', controller: :posts, action: :list
+    get '/', controller: :posts, action: :list, as: :admin
     get '/posts/list', controller: :posts, action: :list
-    get '/posts/new', controller: :posts, action: :new
-    get '/posts/edit/:id', controller: :posts, action: :edit, as: 'edit'
-    post '/posts/delete/:id', controller: :posts, action: :destroy, as: 'destroy'
-    post '/posts/create', controller: :posts, action: :create
-    post '/posts/update/:id', controller: :posts , action: :update, as: 'update'
+
+    resources :posts, only: [:new, :edit, :create, :update, :destroy]
+    # get '/posts/new', controller: :posts, action: :new
+    # get '/posts/edit/:id', controller: :posts, action: :edit, as: 'posts_edit'
+    # post '/posts/delete/:id', controller: :posts, action: :destroy, as: 'posts_destroy'
+    # post '/posts/create', controller: :posts, action: :create
+    # post '/posts/update/:id', controller: :posts , action: :update, as: 'posts_update'
   end
 
 

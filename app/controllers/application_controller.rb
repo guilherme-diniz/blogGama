@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin_user
-    @current_admin_user ||= current_user if user_signed_in? && current_user.role == :admin
+    @current_admin_user ||= current_user if user_signed_in?
   end
 end

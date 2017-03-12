@@ -32,6 +32,9 @@ gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
 gem 'jquery-turbolinks'
 gem 'font-awesome-rails'
+gem 'time_diff'
+gem 'shareable'
+
 
 gem "therubyracer"
 gem 'sass-rails', "5.0.6"

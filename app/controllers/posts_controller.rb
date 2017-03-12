@@ -46,7 +46,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to return_url, notice: 'Post criado com sucesso!' }
+        format.html { redirect_to posts_list_path, notice: 'Post criado com sucesso!' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to return_url, notice: 'Post atualizado com sucesso!' }
+        format.html { redirect_to posts_list_path, notice: 'Post atualizado com sucesso!' }
         format.json { render :list, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class PostsController < ApplicationController
   def destroy
    @post.destroy
    respond_to do |format|
-      format.html { redirect_to return_url, notice: "Post removido com sucesso!" }
+      format.html { redirect_to posts_list_path, notice: "Post removido com sucesso!" }
       format.json { hepost :no_content }
     end
   end
@@ -85,10 +85,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:blog).permit(:active, :title, :description, :content, :author, :tag_list , :main_image)
+    params.require(:post).permit(:active, :title, :description, :content, :author, :tag_list , :main_image)
   end
 
-  def return_url
-    blogs_list_path(:type => post_params[:blog_type])
-  end
 end

@@ -226,6 +226,9 @@ GEM
       rdoc (~> 4.0)
     select2-rails (4.0.3)
       thor (~> 0.14)
+    shareable (1.1.4)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     spring (2.0.1)
       activesupport (>= 4.2)
     sprockets (3.6.3)
@@ -245,6 +248,9 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.6)
+    time_diff (0.3.0)
+      activesupport
+      i18n
     tinymce-rails (4.5.5)
       railties (>= 3.1.1)
     tinymce-rails-langs (4.20160310)
@@ -306,10 +312,12 @@ DEPENDENCIES
   sass-rails (= 5.0.6)
   sdoc (~> 0.4.0)
   select2-rails
+  shareable
   spring
   sprockets (~> 3.6.3)
   sqlite3
   therubyracer
+  time_diff
   tinymce-rails
   tinymce-rails-langs
   turbolinks

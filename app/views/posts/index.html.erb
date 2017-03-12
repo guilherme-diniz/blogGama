@@ -25,7 +25,7 @@
 
           <h2><%= link_to "#{post.title}", "/blogs/#{post.id}" %></h2>
           <p class="post-text"><%= truncate(post.content, length: 440, omission: '...', escape: false) %></p>
-          <%= link_to "Continue lendo", "/blogs/#{post.id}", class: "continue-reading" %>
+          <%= link_to "Continue lendo", posts_show_path(post.id), class: "continue-reading" %>
 
           <span class="post-comments" data-no-turbolink><i class="icon-comment"></i> <% if Rails.env.development? %><span class="fb-comments-count" data-href="http://localhost:3000/blogs/<%= post.id %>"></span><% end %><% if Rails.env.production? %><span class="fb-comments-count" data-href="http://vitadelrei.com.br/blogs/<%= post.id %>"></span><% end %></span>
           <span class="post-views"><i class="icon-eye-view"></i> <%= post.views %></span>
