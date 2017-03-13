@@ -21,6 +21,12 @@ Rails.application.routes.draw do
       get '/' , action: :index
       get '/index' , action: :index
       get '/:id', action: :show , as: 'show'
+      post '/download/:id', action: :download, as: 'download'
+      get '/concluded/:id', action: :concluded, as: 'concluded'
+    end
+
+    namespace :users do
+      get '/new', action: :new
     end
 
   # Example resource route with options:

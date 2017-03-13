@@ -1,0 +1,208 @@
+/* Estilos específicos do site */
+
+/* Importando a tipografia para o site */
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,400i,700');
+
+
+html, body {
+	background-color: #f8f8f8;
+	font-family: 'Lato', sans-serif;
+}
+/* HEADER BLOG */
+/* Header do blog, presente na página inicial */
+.header-blog {
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), image-url('banner_blog_v1.jpg');
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	color:#fff;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-bottom: 20px;
+}
+.header-blog h1 {
+	font-weight: bold;
+	font-size: 40px;
+	text-align: center;
+	text-shadow: -4px 2px 0px rgba(0, 0, 0, 1);
+}
+.header-blog h2 {
+	font-size: 25px;
+	text-align: center;
+	text-shadow: -4px 2px 0px rgba(0, 0, 0, 1);
+}
+.header-blog .logo {
+	display: block;
+	width: 400px;
+	max-width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* Header do blog, presente na páginas internas */
+.header-blog-interna {
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), image-url('banner_blog_v1.jpg');
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	color:#fff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+.header-blog-interna h1 {
+	font-weight: bold;
+	font-size: 40px;
+	text-align: center;
+	text-shadow: -4px 2px 0px rgba(0, 0, 0, 1);
+}
+.header-blog-interna h2 {
+	font-size: 25px;
+	text-align: center;
+	text-shadow: -4px 2px 0px rgba(0, 0, 0, 1);
+}
+.header-blog-interna .logo {
+	display: block;
+	width: 100px;
+	margin-left: 15px;
+}
+
+/* Header do post */
+.header-post {
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color:#fff;
+	border: 10px solid #fff;
+	padding: 25px;
+	max-width: 100%;
+}
+.header-post h1 {
+	font-size: 30px;
+	font-weight: bold;
+}
+.header-post h2 {
+	font-size: 15px;
+	font-weight: 300;
+}
+
+.btn-voltar {
+	padding: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* Formulário de login pro admin*/
+.login-form {
+    width: 320px;
+    margin: 7% auto;
+}
+.login-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.login-logo img {
+    max-width: 200px;
+}
+.login-form form {
+    background: #fff;
+    padding: 20px;
+    border-top: 0;
+    color: #666;
+}
+
+/* Página interna da administração - Listagem posts */
+.logo-admin {
+	max-width: 250px;
+	padding: 15px;
+}
+.alignright {
+	float: right;
+}
+.titulo-admin {
+	font-weight: bold;
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+.listagemposts {
+	margin-top: 10px;
+}
+.listagemposts ul li {
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.listagemposts ul li .post-noar {
+	font-size: 15px;
+	font-weight: normal;
+}
+.listagemposts ul li .post-noar i {
+	color:green;
+}
+.listagemposts ul li .post-airproar {
+	font-size: 15px;
+	font-weight: normal;
+}
+.listagemposts ul li .post-airproar i {
+	color:red;
+}
+.criar-post-form {
+	margin-bottom: 20px;
+}
+
+/* Caixas de posts na tela inicial */
+.home-post {
+	margin-bottom: 15px;
+}
+.home-post h3 {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: justify;
+}
+.home-post .nome-autor-e-data {
+	display: block;
+	font-size: 12px;
+	font-style: italic;
+	margin-bottom: 10px;
+}
+
+.home-post .post-title a {
+    color: #000;
+    text-decoration: none;
+}
+
+.home-post .post-title a:hover
+{
+     color:#000;
+}
+
+footer {
+	background-color: #000;
+	height: 50px;
+}
+
+/* Barra lateral */
+.sidebar {
+	background-color: rgba(240,240,240,1);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 900px;
+}
+.sidebar h4 {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.sidebar li.post-title a {
+    color: #000;
+    text-decoration: none;
+}
+
+.sidebar li.post-title a:hover
+{
+     color:#000;
+     text-decoration:none;
+}
+
+.bootstrap-tagsinput {
+	display: block;
+}

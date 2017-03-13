@@ -1,0 +1,5 @@
+<div class="container">
+  <a href="<%= root_path%>" class="btn btn-voltar"><i class="glyphicon glyphicon-chevron-left"></i>Todos os posts</a>
+    <h2> Obrigado por realizar a inscrição. Abaixo, segue o link para download: </h2>
+    <h5> <%= link_to 'Baixar', @post.pdf_file.url %> </h5>
+</div>

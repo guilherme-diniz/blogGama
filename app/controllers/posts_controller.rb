@@ -17,11 +17,11 @@ class PostsController < ApplicationController
   end
 
   def show
+    @posts = Post.where(active: true).order_by(:views.desc)[0..5]
     @post = Post.find(params[:id])
     @post.views ||= 0
     @post.views += 1
     @post.save!
-    # @similar_posts = PostsHelper.similar_posts(@mini_site)
 
     respond_to do |format|
       format.html
@@ -68,7 +68,6 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def destroy
@@ -79,13 +78,33 @@ class PostsController < ApplicationController
     end
   end
 
+  def download
+   @id = params[:id]
+   user_params = params[:user]
+   @user = User.new
+   @user.name = user_params[:name] + " " + user_params[:last_name]
+   @user.email = user_params[:email]
+   @user.isPJ = user_params[:isPJ]
+   @user.password = user_params[:email]
+   @user.save!
+
+   respond_to do |format|
+        format.html { redirect_to posts_concluded_path(@id) }
+        format.json { hepost :no_content }
+    end
+  end
+
+  def concluded
+    @post = Post.find(params[:id])
+  end
+
   private
   def set_post
       @post = Post.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:active, :title, :description, :content, :author, :tag_list , :main_image)
+    params.require(:post).permit(:active, :title, :description, :content, :author, :tag_list , :main_image, :pdf_file)
   end
 
 end

@@ -1,79 +1,24 @@
- <div class="col-xs-3">
-          <%= link_to destroy_user_session_path, method: :delete do %>
-              <button class="btn btn-xs btn-vita btn-vita-default btn-new">Sair </button>
-          <% end %>
-        </div>
-<div id="list">
-  <div id="middle">
-    <div class="objects">
-      <% if @posts.present? %>
-      <%= bootswatch_flash %>
-      <div class="row">
-        <div class="col-xs-9">
-          <h3> Blog </h3>
-        </div>
-
-        <div class="col-xs-3">
-          <%= link_to new_post_path do %>
-              <button class="btn btn-xs btn-vita btn-vita-default btn-new">Novo </button>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="index-items">
-        <% @posts.each do |post| %>
-        <div class="index-item">
-          <div class="index-item-img">
-            <img src=<%= post.main_image(:thumb) %> alt=<%= post.title%>>
-          </div>
-
-          <div class="index-item-text">
-            <div class="index-item-info">
-              <h4><%= post.title %></h4>
-              <small class="text-muted dindex-item-description"><%= post.description.split[0..30].join(" ") rescue nil %></small>
-            </div>
-
-            <div class="index-item-data">
-              <span class="index-item-status">
-              <% if post.active %>
-                <span class="index-item-active text-success">
-                  <i class="icon-check"></i> <small>no ar</small>
-                </span>
-              <% else %>
-                <span class="index-item-active text-danger">
-                  <i class="icon-checkboxalt"></i> <small>não postado</small>
-                </span>
-              </span>
-              <% end %>
-              <span class="index-item-edit" tooltip="Editar post">
-                <%= link_to "", edit_post_path(post.id), class: "icon-edit" %>
-              </span>
-
-              <span class="index-item-delete" tooltip="Apagar post">
-                <%= link_to '', post , method: :delete, class: "icon-trash", confirm: "Voce tem certeza?" %>
-              </span>
-
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-      <% else %>
-        <div class="panel">
-          <div class="panel-body">
-            <h3 class="text-center">
-              Não existe nenhum post cadastrado. :(
-            </h3>
-            <br>
-            <%= link_to new_post_path do %>
-            <button class="btn btn-lg btn-block btn-vita btn-vita-primary">
-              Clique aqui e crie um novo post
-            </button>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<h1 class="titulo-admin">Posts publicados/a publicar</h1>
+<div class="container">
+	<%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-default alignright" %>
+	<%= link_to "Novo", new_post_path,  class: "btn btn-default" %>
+     	<% if @posts.present? %>
+       	<div class="row listagemposts">
+			<ul>
+				<% @posts.each do |post| %>
+					<li>
+						<%= post.title %> <br />
+						<% if post.active %>
+							<span class="post-noar">no ar <i class="fa fa-globe" aria-hidden="true"></i></span>
+						<% else %>
+							<span class="post-airproar">a ir pro ar <i class="fa fa-clock-o" aria-hidden="true"></i></span>
+						<% end -%>
+						<br />
+				             <%= link_to "Editar", edit_post_path(post.id), class: "btn btn-default" %>
+				             <%= link_to 'Excluir', post , method: :delete, confirm: "Voce tem certeza?" , class: "btn btn-default"%>
+					</li>
+				<% end -%>
+			</ul>
+		</div>
+	<% end -%>
 </div>
-

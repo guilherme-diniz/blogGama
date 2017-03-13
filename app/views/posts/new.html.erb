@@ -1,21 +1,10 @@
-<div id="list">
-  <div id="middle">
-    <%= tinymce_assets %>
-
-    <div class="form-crud">
-      <div class="row form-title-area">
-        <div class="col-xs-9">
-          <h3> Blog / Novo</h3>
-        </div>
-
-        <div class="col-xs-3">
-          <%= link_to posts_list_path do %>
-              <button class="btn btn-xs btn-vita btn-vita-default btn-new">Voltar</button>
-          <% end %>
-        </div>
-      </div>
-
-      <%= render 'form' %>
-    </div>
-  </div>
-</div>
+<h1 class="titulo-admin">Criar novo post</h1>
+<%= tinymce_assets %>
+<%= link_to "Voltar", posts_list_path, class: 'btn btn-default alignright' %>
+<div class="container">
+    	<div class="row">
+      		<div class="col-sm-12">
+      			<%= render 'form' %>
+      		</div>
+      	</div>
+ </div>

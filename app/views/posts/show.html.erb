@@ -1,17 +1,34 @@
-<% if @post.main_image.present? %>
-  <header style="background: url(<%= @post.main_image(:big) %>) no-repeat center center">
-    <div class="content-titles">
-      <h1><%= @post.title %></h1>
-      <h2><%= @post.description %></h2>
-    </div>
-  </header>
-<% end %>
-
-<section id="content-blog">
-  <% unless @post.main_image.present? %>
-    <h1 class="blog-title"><%= @post.title %></h1>
-    <h2 class="blog-subtitle"><%= @post.description %></h2>
-  <% end %>
-  <%= render_shareable buttons: ['twitter', 'facebook', 'google_plus'], :turbolinks => true %>
-  <%= @post.content.html_safe if @post.content %>
-</section>
+<div class="container">
+	<a href="<%= root_path%>" class="btn btn-voltar"><i class="glyphicon glyphicon-chevron-left"></i>Todos os posts</a>
+	<header class="header-post" style="background-image: url('<%= @post.main_image(:medium) if @post.main_image.present?%>')">
+		<h1> <%= @post.title %></h1>
+		<h2> <%=@post.description %></h2>
+		<% @post.tags.each do |tag| %>
+			<span class="btn btn-default"><%= tag %></span>
+		<% end -%>
+	</header>
+	<%= render_shareable buttons: ['twitter', 'facebook', 'google_plus'], :turbolinks => true %>
+	<div class="row">
+		<div class="col-sm-9 single-post">
+  			<%= @post.content.html_safe if @post.content %>
+  			<% if not @post.pdf_file.nil? %>
+			     	<button type="button" class="btn btn-primary success" data-toggle="modal" data-target="#myModal">Clique aqui para fazer o download </button>
+			  	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			    		<%= render 'user_form', object: @post %>
+			  	</div>
+		     <% end -%>
+		</div>
+		<div class="col-sm-3 sidebar">
+			<h4>Posts mais visualizados</h4>
+			<ol class="lista-visualizados">
+				<% @posts.each do |post| %>
+					<li class="post-title"><%= link_to "#{post.title}", posts_show_path(post.id) %></li>
+				<% end -%>
+			</ol>
+			<h4>Tags</h4>
+			<% PostsHelper::can_shoot_tags?.each do |tag| %>
+	             	<span class="btn btn-default"><%= tag %></span>
+	            <% end %>
+		</div><!--/sidebar-->
+	</div>
+</div>
