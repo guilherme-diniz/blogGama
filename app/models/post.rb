@@ -6,6 +6,9 @@ class Post
   has_mongoid_attached_file  :main_image, styles: { big: "900x900>", medium: "500x500>", thumb: "250x250>", minithumb:  "55x54#" }
   validates_attachment_content_type :main_image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  has_mongoid_attached_file :pdf_file
+  validates_attachment :pdf_file, :content_type => { :content_type => %w(application/pdf) }
+
   field :active, type: Boolean #Indica se esta ativo no sistema
   field :title, type: String        #Titulo do post
   field :description, type: String #Pequena descricao
@@ -15,9 +18,8 @@ class Post
   field :views, type: Integer       #Numero de visualizacoes
 
   def self.create params
-    post = Blog.new
+    post = Post.new
 
-    post.blog_type = params[:blog_type]
     post.title = params[:title]
     post.content = params[:content]
     post.author = params[:author]
@@ -31,7 +33,6 @@ class Post
   end
 
   def self.update post, params
-    post.blog_type = params[:blog_type]
     post.title = params[:title]
     post.content = params[:content]
     post.author = params[:author]

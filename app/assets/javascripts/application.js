@@ -18,6 +18,7 @@
 //= require select2
 //= require jquery.datetimepicker
 //= require jquery.datetimepicker/init
+//= require bootstrap/modal
 
 /////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
 //////////// VENDOR ASSETS ABOVE \\\\\\\\\\\\\
@@ -35,7 +36,6 @@
 //============================================
 // GRID THUMBNAIL
 //============================================
-//= require ./utils/elastic_grid.min
 //============================================
 // CALENDAR PICK JQUERY
 //============================================
