@@ -37,10 +37,12 @@
 
 </head>
 <body class="<%= request.original_url.include?("baixe-aqui")  ? 'landing' :
-request.original_url.include?("obrigado") ? 'muitoobrigado' : 'no-tag'%>">
+request.original_url.include?("obrigado") ? 'muitoobrigado' :
+request.original_url.include?("descubra-quem") ? 'testes' : 'no-tag'%>">
 <% if request.original_url.include?("admin") %>
     <a href="<%= root_path%>"><img src="/assets/logo_pense_eventos-02.png" class="logo-admin"></a>
-<% elsif request.original_url.include?("baixe-aqui") || request.original_url.include?("obrigado") %>
+<% elsif request.original_url.include?("baixe-aqui") || request.original_url.include?("obrigado") ||
+request.original_url.include?("descubra-quem") %>
 <header class="header-blog<%= current_page?(root_path) ? '' : '-interna' %>" style="background: none;">
       <a href="<%= root_path%>">
           <%= image_tag "logo_pense_eventos-02.png" , class: 'logo' %>
@@ -54,7 +56,7 @@ request.original_url.include?("obrigado") ? 'muitoobrigado' : 'no-tag'%>">
 </header>
 <% end -%>
     <%= yield %>
-<% if not request.original_url.include?("admin") and not request.original_url.include?("baixe-aqui") and not request.original_url.include?("obrigado") %>
+<% if not request.original_url.include?("admin") and not request.original_url.include?("baixe-aqui") and not request.original_url.include?("obrigado") and not request.original_url.include?("descubra-quem")  %>
     <footer>
     </footer>
 <% end -%>

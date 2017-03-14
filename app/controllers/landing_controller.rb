@@ -13,6 +13,10 @@ class LandingController < ApplicationController
 
   end
 
+  def events
+
+  end
+
   def thankyou
     @id = params[:id]
      user_params = params[:user]

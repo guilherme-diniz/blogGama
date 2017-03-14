@@ -19,6 +19,7 @@
 //= require jquery.datetimepicker
 //= require jquery.datetimepicker/init
 //= require bootstrap/modal
+//= require script
 
 /////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
 //////////// VENDOR ASSETS ABOVE \\\\\\\\\\\\\

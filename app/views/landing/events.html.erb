@@ -1,0 +1,32 @@
+<% title 'Descubra quem é você nos eventos da sua empresa! | Pense Eventos' %>
+<div class="caixa-testes">
+    <div class="caixa-testes-corpo">
+
+        <img id="imgCapa" src="http://lorempixel.com/600/200/" class="img-responsive" />
+        <h1 id="tituloTeste">Descubra quem é você nos eventos da sua empresa!</h1>
+        <div id="testDialog">
+        <button class="btn btn-block btn-social btn-facebook" id="btnLogin" onclick="logarFacebook()"> <span class="fa fa-facebook"></span> Fazer login com o Facebook</button>
+        </div>
+    </div>
+</div>
+<div id="fb-root"></div>
+
+    <script>
+    function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+
+
+    if(getParameterByName('titulo'))
+    {
+        document.getElementsByTagName('head')[0].appendChild('')
+    }
+}
+</script>

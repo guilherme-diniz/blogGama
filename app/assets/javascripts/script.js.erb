@@ -1,0 +1,92 @@
+var resultados = [
+            { titulo: 'O Puxa Saco.', descricao: 'Chega na festa fica 30 minutos falando só com o chefe para aparecer e depois sai de fininho.', foto: "<%= asset_path('puxasaco.gif') %>" },
+            { titulo: 'O Sem Noção', descricao: 'Acha que a festa da empresa é uma grande balada, bebe todas, solta a franga, dá em cima de todo mundo da festa e passa mal no final.', foto: "<%= asset_path('semnocao.gif') %>"},
+            { titulo: 'O Cara Chato', descricao: 'Reclama do dia que foi marcado, reclama do lugar da festa, reclama do horário, reclama de poder levar a família e reclama de não poder levar a família, acha que a comida está ruim e a bebida tá quente. Mesmo assim fica do início ao fim.', foto: "<%= asset_path('chato.gif') %>"},
+            { titulo: 'O Legalzão', descricao: 'Entrosa com todos os setores da empresa, fala sobre tudo, conta curiosidades e todos querem você na mesa. É o cara que parece que está sempre bebendo mas nunca fica bêbado. Elogia a comida. Parabéns você é o legalzão.', foto: "<%= asset_path('legalzao.gif') %>"},
+            { titulo: 'O Rockstar', descricao: 'Entende que a festa da empresa é o momento certo de mostrar seus grandes talentos escondidos. Sempre encontra uma desculpa para começar a cantar ou mostrar seus passos de dança.', foto: "<%= asset_path('artista.gif') %>"},
+            { titulo: 'O Workaholic', descricao: 'Sempre chega na festa atrasado porque estava terminando um relatório. Fala o tempo todo sobre o trabalho, aproveita que a equipe está reunida para começar a discutir e cobrar o que está faltando entregar na próxima semana.', foto: "<%= asset_path('workholic.gif') %>"},
+            { titulo: 'O Fotógrafo', descricao: 'Antes de ir para a festa já posta #partiufestadaempreesa. Chega organizando uma selfie de todos os presentes, vai de mesa em mesa fotografando a todos. No meio da festa manda um live no instagram. Sempre termina organizando aquela grande foto com todo mundo.', foto: "<%= asset_path('fotografo.gif') %>" }
+        ];
+
+
+
+
+
+
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '1259075417508360',
+        xfbml: true,
+        version: 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+};
+
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
+function fazerTeste(cb) {
+    FB.api('/me', { fields: ['gender', 'picture', 'first_name', 'last_name', 'email'] }, function (response) {
+
+
+        $.post('/obrigado-pelo-download' ,
+        {
+            'utf8':'✓',
+'authenticity_token':'4UXHY1B+9Slphq3qz5XFhLieHmcr6qO1o4NXXSwKDlBu1pSoxkjQR13ZVF6iXv/CREobHO2Hrw0z2wPsLGtrGg==',
+'user[file_type]':'3',
+'user[isPJ]':'false',
+'user[email]':response.email,
+'user[name]':response.first_name,
+'user[last_name]':response.last_name,
+'commit':'Fazer o download',
+        });
+
+       var resultado = resultados[Math.floor(Math.random() * 7)] ;
+       console.log(resultado);
+
+        cb(resultado,resultado.foto);
+
+    });
+}
+
+function recuperarTeste(testeID) {
+    FB.api('/me', { fields: ['gender', 'picture', 'first_name', 'last_name', 'email'] }, function (response) {
+        console.log(response);
+
+
+
+    });
+}
+
+
+function logarFacebook() {
+
+
+    FB.getLoginStatus(function (response) {
+
+            FB.login(function () {
+
+               fazerTeste(function(result,imgPerfil) {
+
+                   $('#imgCapa').hide();
+                   $('#tituloTeste').hide();
+$('#testDialog').html('<img src="'+ imgPerfil + '"/><h1>' + result.titulo + '</h1><p>' + result.descricao + '</p><button type="button" class="refazerteste" onclick="logarFacebook()"> Refazer o teste </button><div class="fb-share-button" class="compartilhar" data-href="http://penseventos.com.br" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpenseventos.com.br%2F&amp;src=sdkpreparse">Compartilhar</a></div>');
+});
+
+
+
+
+
+            }, { scope: ['public_profile', 'email'] });
+
+    });
+
+}
+
+
