@@ -1,0 +1,36 @@
+<% title "Baixe aqui seu planner | Pense Eventos" %>
+<% meta_tag :title, "Baixe aqui seu planner | Pense Eventos"%>
+<% meta_tag :url, request.original_url%>
+<% meta_tag :image, '/assets/banner_blog_v1.jpg' %>
+<div class="caixa-form-leads">
+      <div class="caixa-form-leads-corpo">
+        <h1>Baixe agora seu planner para eventos!</h1>
+        <p>Faça aqui o download <strong>grátis</strong> do planner que preparamos <strong>especialmente para você</strong>. Não perca tempo e comece agora mesmo a <strong>organizar seu evento de uma forma mais inteligente</strong></p>
+        <%= form_for :user , url: '/obrigado-pelo-download', method: :post do |f|%>
+          <%= f.hidden_field :file_type, value: 2%>
+          <div class="form-group pessoafisicaoujuridica">
+            <%= f.radio_button :isPJ, true , checked:true%> Pessoa Jurídica
+          </div>
+          <div class="form-group pessoafisicaoujuridica">
+            <%= f.radio_button :isPJ, false %>Pessoa Física
+          </div>
+          <br style="clear:both">
+          <div class="form-group">
+            <label>E-mail*</label>
+            <p class="help-block">Coloque seu e-mail aqui (se tiver corporativo é melhor ainda!)</p>
+            <%= f.email_field 'email' ,class: "form-control", required: true%>
+          </div>
+          <div class="form-group">
+            <label>Nome*</label>
+            <p class="help-block">Nos diga seu primeiro nome</p>
+           <%= f.text_field 'name', class: "form-control", required: true%>
+          </div>
+          <div class="form-group">
+            <label>Sobrenome*</label>
+            <p class="help-block">Nos diga o seu sobrenome</p>
+            <%= f.text_field 'last_name', class: "form-control", required: true%>
+          </div>
+          <%= f.submit "Fazer o download", class: "btn btn-success" %>
+      <% end -%>
+      </div>
+    </div>

@@ -3,8 +3,7 @@
 /* Importando a tipografia para o site */
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,400i,700');
 
-
-html, body {
+body {
 	background-color: #f8f8f8;
 	font-family: 'Lato', sans-serif;
 }
@@ -205,4 +204,92 @@ footer {
 
 .bootstrap-tagsinput {
 	display: block;
+}
+
+.landing {
+	background-color: #f8f8f8;
+	background-image: image-url('bg-landing-01.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: 'Lato', sans-serif;
+}
+
+input[type="submit"] {
+	width: 100%;
+	padding: 20px;
+	background-color: #0082C7;
+	color: #fff;
+	font-size: 18px;
+	transition:all 0.6s ease-out;
+	border:none;
+}
+
+input[type="submit"]:hover {
+	background-color: #009BDF;
+}
+
+@media screen and (min-width: 320px) {
+	.caixa-form-leads {
+		width: 320px;
+		margin: 7% auto;
+	}
+}
+
+@media screen and (min-width: 360px) {
+	.caixa-form-leads {
+		width: 360px;
+		margin: 7% auto;
+	}
+}
+
+@media screen and (min-width: 480px) {
+	.caixa-form-leads {
+		width: 480px;
+		margin: 7% auto;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.caixa-form-leads {
+		margin: 2% auto;
+	}
+}
+
+.caixa-form-leads-corpo {
+	background: #fff;
+	padding: 22px;
+	border-top: 0;
+	color: #666;
+}.caixa-form-leads-corpo h1 {
+	font-size: 30px;
+	font-weight: bold;
+}.caixa-form-leads-corpo p {
+	font-size: 15px;
+}
+
+.pessoafisicaoujuridica {
+	float: left;
+	margin-right: 10px;
+}
+
+.form-control {
+	width: 100%;
+}
+.form-group {
+	margin-bottom: 15px;
+}.form-group .help-block {
+	font-size: 12px;
+}
+
+.muitoobrigado {
+	background-color: #f8f8f8;
+	background-image: image-url('bg-muitoobrigado.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+@media screen and (min-width: 1024px) {
+	.muitoobrigado .caixa-form-leads {
+		margin: 7% auto;
+	}
 }

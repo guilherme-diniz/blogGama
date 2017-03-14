@@ -1,0 +1,17 @@
+<% title "Muito obrigado! | Pense Eventos" %>
+<div class="caixa-form-leads">
+      <div class="caixa-form-leads-corpo">
+        <h1>Muito obrigado!</h1>
+        <p>Parabéns seu conteúdo já está disponível aqui para você. Aproveite e não esqueça de nós convidar para o seu próximo evento.</p>
+      </div>
+    </div>
+
+    <%= form_for :user , url: "/download/#{@type}", method: :post do |f|%>
+        <%= f.submit "download", id: "download", style: 'display:none' %>
+    <% end -%>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#download").click()
+});
+</script>

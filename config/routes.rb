@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root to: 'posts#index'
  match "signout", to: "sessions#destroy", via: [:get, :post]
 
+ get '/baixe-aqui-seu-planner-para-eventos', controller: 'landing', action: "planner"
+ get '/baixe-aqui-seu-checklist-para-eventos', controller: 'landing', action: "checklist"
+ get '/baixe-aqui-seu-framework-para-eventos', controller: 'landing', action: "framework"
+ post '/download/:id', controller: 'landing', action: 'download'
+ post '/obrigado-pelo-download', controller: 'landing', action: 'thankyou'
+
  scope '/admin' do
     get '/', controller: :posts, action: :list, as: :admin
     get '/posts/list', controller: :posts, action: :list

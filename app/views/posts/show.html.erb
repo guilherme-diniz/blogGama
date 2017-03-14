@@ -1,3 +1,9 @@
+<% title @post.title %>
+<% meta_tag :title, @post.title%>
+<% meta_tag :description, @post.description%>
+<% meta_tag :description_twitter, @post.description[0..130] %>
+<% meta_tag :url, request.original_url%>
+<% meta_tag :image, @post.main_image.url %>
 <div class="container">
 	<a href="<%= root_path%>" class="btn btn-voltar"><i class="glyphicon glyphicon-chevron-left"></i>Todos os posts</a>
 	<header class="header-post" style="background-image: url('<%= @post.main_image(:medium) if @post.main_image.present?%>')">
@@ -11,12 +17,6 @@
 	<div class="row">
 		<div class="col-sm-9 single-post">
   			<%= @post.content.html_safe if @post.content %>
-  			<% if not @post.pdf_file.nil? %>
-			     	<button type="button" class="btn btn-primary success" data-toggle="modal" data-target="#myModal">Clique aqui para fazer o download </button>
-			  	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			    		<%= render 'user_form', object: @post %>
-			  	</div>
-		     <% end -%>
 		</div>
 		<div class="col-sm-3 sidebar">
 			<h4>Posts mais visualizados</h4>

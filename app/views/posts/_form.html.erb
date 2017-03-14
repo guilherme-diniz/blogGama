@@ -48,14 +48,6 @@
     <%= tinymce language: "pt_BR" %>
 </div>
 
- <div class="form-group">
-    <label for="pdf_file"> Arquivo </label>
-      <p class="help-block">
-        Selecione o conteúdo a ser baixado pelo usuário
-      </p>
-      <%= f.file_field :pdf_file, class: "form-control", accept:"application/pdf" %>
-  </div>
-
   <div class="form-group">
       <label>
         <%= f.radio_button :active, true %> Postar agora
