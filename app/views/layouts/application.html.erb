@@ -14,10 +14,10 @@
     <meta name="author" content="">
     <meta name="description" content="">
     <!-- Open Graph data -->
-    <meta property="og:title" content=<%= yield_meta_tag(:title, '') %> />
+    <meta property="og:title" content="'"+<%= yield_meta_tag(:title, '') %>+"'" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content=<%= yield_meta_tag(:url, 'http://www.penseventos.com.br') %> />
-    <meta property="og:image" content=<%= yield_meta_tag(:image, '') %> />
+    <meta property="og:image" content=<%= yield_meta_tag('http://www.penseventos.com.br'+:image, '') %> />
     <meta property="og:description" content=<%= yield_meta_tag(:description, 'Sem descrição') %> />
     <meta property="og:site_name" content="PensEventos" />
     <meta property="fb:admins" content="Facebook numeric ID" />
