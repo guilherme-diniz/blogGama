@@ -293,3 +293,99 @@ input[type="submit"]:hover {
 		margin: 7% auto;
 	}
 }
+
+ .testes {
+                background-color: #f8f8f8;
+                background-image: image-url('bg-landing-01.jpg');
+                background-size: cover;
+                background-attachment: fixed;
+                font-family: 'Lato', sans-serif;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+                padding: 20px;
+                background-color: #0082C7;
+                color: #fff;
+                font-size: 18px;
+                transition:all 0.6s ease-out;
+                border:none;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #009BDF;
+            }
+
+            @media screen and (min-width: 320px) {
+                .caixa-testes {
+                    width: 320px;
+                    margin: 7% auto;
+                }
+            }
+
+            @media screen and (min-width: 360px) {
+                .caixa-testes {
+                    width: 360px;
+                    margin: 7% auto;
+                }
+            }
+
+            @media screen and (min-width: 480px) {
+                .caixa-testes {
+                    width: 480px;
+                    margin: 7% auto;
+                }
+            }
+
+            @media screen and (min-width: 1024px) {
+                .caixa-testes {
+                    width: 600px;
+                }
+            }
+
+            .caixa-testes-corpo {
+            background: #fff;
+            padding: 25px;
+            border-top: 0;
+            color: #666;
+            }.caixa-testes-corpo h1 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            }.caixa-testes-corpo p {
+            font-size: 15px;
+            }
+            .caixa-testes-corpo img {
+                margin-bottom: 15px;
+            }
+
+            .refazerteste {
+                float: right;
+                border:none;
+                background-color:#fff;
+                text-decoration: underline;
+                padding:10px;
+                width:200px;
+                transition:all 0.5s ease-out;
+            }
+
+            .refazerteste:hover {
+                text-decoration: underline;
+            }
+
+            .compartilhar {
+                float:left;
+                float:right;
+                background-color:#0082C7;
+                width:200px;
+                text-align:center;
+                padding:10px;
+                transition:all 0.5s ease-out;
+            }.compartilhar:hover {
+                background-color: #009BDF;
+            }
+
+            .compartilhar a, .compartilhar a:hover {
+                color:#fff;
+                text-decoration: none;
+            }

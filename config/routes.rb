@@ -8,6 +8,7 @@ Rails.application.routes.draw do
  get '/baixe-aqui-seu-framework-para-eventos', controller: 'landing', action: "framework"
  post '/download/:id', controller: 'landing', action: 'download'
  post '/obrigado-pelo-download', controller: 'landing', action: 'thankyou'
+ get '/descubra-quem-e-voce-eventos-empresa', controller: 'landing', action: 'events'
 
  scope '/admin' do
     get '/', controller: :posts, action: :list, as: :admin

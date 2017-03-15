@@ -13,6 +13,12 @@ class LandingController < ApplicationController
 
   end
 
+  def events
+      @title = params[:title] if  params[:title]
+      @image = params[:image] if params[:image]
+      @description = params[:description] if params[:description]
+  end
+
   def thankyou
     @id = params[:id]
      user_params = params[:user]
