@@ -76,7 +76,7 @@ function logarFacebook() {
 
                    $('#imgCapa').hide();
                    $('#tituloTeste').hide();
-$('#testDialog').html('<img src="'+ imgPerfil + '"/><h1>' + result.titulo + '</h1><p>' + result.descricao + '</p><button type="button" class="refazerteste" onclick="logarFacebook()"> Refazer o teste </button><div class="fb-share-button" class="compartilhar" data-href="http://penseventos.com.br" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpenseventos.com.br%2F&amp;src=sdkpreparse">Compartilhar</a></div>');
+$('#testDialog').html('<img src="'+ imgPerfil + '"/><h1>' + result.titulo + '</h1><p>' + result.descricao + '</p><button type="button" class="refazerteste" onclick="logarFacebook()"> Refazer o teste </button><div class="fb-share-button" data-href="http://penseventos.com.br//descubra-quem-e-voce-eventos-empresa?title="' + result.titulo.replace('  ',' ').replace(' ','+') + '"&amp;description="' + result.descricao.replace('  ',' ').replace(' ','+') + '"&amp;image="' + result.foto + '" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpenseventos.com.br%2Fdescubra-quem-e-voce-eventos-empresa%3Ftitle%3D' + result.titulo.replace('  ',' ').replace(' ','%2B') + '%26description%3Daaa%26image%3D' + result.foto + '&amp;src=sdkpreparse">Compartilhar</a></div>');
 });
 
 
@@ -84,7 +84,7 @@ $('#testDialog').html('<img src="'+ imgPerfil + '"/><h1>' + result.titulo + '</h
 
 
             }, { scope: ['public_profile', 'email'] });
-
+/descubra-quem-e-voce-eventos-empresa
     });
 
 }
