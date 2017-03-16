@@ -1,8 +1,8 @@
 <h1 class="titulo-admin">Editar post</h1>
 <%= tinymce_assets %>
-<%= link_to "Voltar", posts_list_path, class: 'btn btn-default alignright' %>
 <div class="container">
       <div class="row">
+	  <%= link_to "Voltar", posts_list_path, class: 'btn btn-default alignright' %>
           <div class="col-sm-12">
             <%= render 'form' %>
           </div>

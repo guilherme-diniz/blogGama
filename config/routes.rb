@@ -9,6 +9,7 @@ Rails.application.routes.draw do
  post '/download/:id', controller: 'landing', action: 'download'
  post '/obrigado-pelo-download', controller: 'landing', action: 'thankyou'
  get '/descubra-quem-e-voce-eventos-empresa', controller: 'landing', action: 'events'
+ get '/descubra-qual-tipo-evento-ir-fim-de-semana', controller: 'landing', action: 'events_weekend'
 
  scope '/admin' do
     get '/', controller: :posts, action: :list, as: :admin
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
       get '/:id', action: :show , as: 'show'
       post '/download/:id', action: :download, as: 'download'
       get '/concluded/:id', action: :concluded, as: 'concluded'
+      get '/leads_list', action: :leads_list
     end
 
     namespace :users do

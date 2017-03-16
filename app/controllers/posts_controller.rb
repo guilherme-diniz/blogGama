@@ -1,4 +1,6 @@
 # -*- encoding : utf-8 -*-
+require 'csv'
+
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy]
   before_filter :authorize_admin, only: [:new, :edit, :list, :update, :create, :destroy]
@@ -96,6 +98,16 @@ class PostsController < ApplicationController
 
   def concluded
     @post = Post.find(params[:id])
+  end
+
+  def leads_list
+    @users = User.all
+    respond_to do |format|
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"leads-list\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   private
