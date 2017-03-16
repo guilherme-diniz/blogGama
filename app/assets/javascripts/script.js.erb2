@@ -1,0 +1,105 @@
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
+var resultados = [
+            { titulo: 'Balada ate cair', descricao: 'Esse e o fim de semana da maldade, hora de ir pra balada e beber a noite toda. Como e de se esperar nesse tipo de evento amigos nao podem faltar. Entao compartilhe e marque aqui dois amigos. Um pra beber todas com você e um para cuidar de vocês dois!', foto: '' },
+            { titulo: 'Barzinho tranquilo', descricao: 'Aproveite esse final de semana para relaxar e botar o papo em dia. Ja passou da hora de você e seus amigos voltarem naquele bar especial para colocar a conversa em dia.', foto: '' },
+            { titulo: 'Forro a noite toda', descricao: 'Esse fim de semana ta chamando um forro. Lembre-se de chamar seus amigos para dancar com você e invada o salao. Nao importa se você so sabe na verdade o mesmo passo, bota o sorriso no rosto e vai confiante que esta fazendo bonito.', foto: '' },
+            { titulo: 'Baile Funk', descricao: 'Chega de fingir que nao gosta! Esse fim de semana e hora de cair no baile. Marque aqui aquele seu amigo que ja entende bem como funciona para te ajudar a se jogar no baile e claro leve alguem que dance pior que você.', foto: '' },
+            { titulo: 'Corrida de rua', descricao: 'Nesse fim de semana e a hora de cumprir a promessa e comecar a participar de eventos esportivos. Pega aquele tênis velho e partiu Corrida. Lembre-se de chamar aquele amigo que certeza ira animar pois esta sempre querendo fazer um exercicio. E aproveite para tirar alguem do sedentarismo.', foto: '' },
+            { titulo: 'Show de Arrocha', descricao: 'Fim de semana ideal para você mostrar a todos seus passos no arrocha. Chame dois amigos animados para ir com você, assim vocês podem mostrar aqueles passos que ensaiaram juntos escondido no ultimo mês. Nao deixe para depois e hora de arrocha!', foto: '' },
+            { titulo: 'Workshop profissional', descricao: 'Acredite apesar do que andam te falando nem todo fim de semana tem que ser so bebedeira. Esse e o final de semana ideal para você fazer aquele workshop que vai alavancar sua carreira e você ja esta adiando a tempos. Temos certeza que insistindo você acha um amigao que aceite pagar para você participar!', foto: '' }
+        ];
+
+
+
+
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '1259075417508360',
+        xfbml: true,
+        version: 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+    FB.getLoginStatus(function (response) {
+       if (response.status === 'connected') {
+                     fazerTeste(function(result,imgPerfil) {
+
+                   $('#imgCapa').hide();
+                   $('#tituloTeste').hide();
+                   document.getElementById('testDialog').innerHTML = '<img class="img-responsive" src="'+ imgPerfil + '"/><h1>' + result.titulo + '</h1><p>' + result.descricao + '</p><button type="button" class="refazerteste" onclick="logarFacebook()"> Refazer o teste </button><div class="fb-share-button" data-href="http://penseventos.com.br//descubra-qual-tipo-evento-ir-fim-de-semana?title=' + result.titulo.replaceAll('  ',' ').replaceAll(' ','+') + '&amp;description=' + result.descricao.replaceAll('  ',' ').replaceAll(' ','+') + '&amp;image=' + result.foto + '" data-layout="button" data-size="large" ><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpenseventos.com.br%2Fdescubra-qual-tipo-evento-ir-fim-de-semana%3Ftitle%3D' + result.titulo.replaceAll('  ',' ').replaceAll(' ','%2B') + '%26description%3Daaa%26image%3D' + result.foto + '&amp;src=sdkpreparse">Compartilhar</a></div>';
+                   FB.XFBML.parse();
+})}});
+
+};
+
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
+function fazerTeste2(cb) {
+    FB.api('/me', { fields: ['gender', 'picture', 'first_name', 'last_name', 'email'] }, function (response) {
+
+
+        $.post('/obrigado-pelo-download' ,
+        {
+            'utf8':'✓',
+'authenticity_token':'4UXHY1B+9Slphq3qz5XFhLieHmcr6qO1o4NXXSwKDlBu1pSoxkjQR13ZVF6iXv/CREobHO2Hrw0z2wPsLGtrGg==',
+'user[file_type]':'3',
+'user[isPJ]':'false',
+'user[email]':response.email,
+'user[name]':response.first_name,
+'user[last_name]':response.last_name,
+'commit':'Fazer o download',
+        });
+
+       var resultado = resultados[Math.floor(Math.random() * 7)] ;
+       console.log(resultado);
+
+        cb(resultado,resultado.foto);
+
+    });
+}
+
+function recuperarTeste2(testeID) {
+    FB.api('/me', { fields: ['gender', 'picture', 'first_name', 'last_name', 'email'] }, function (response) {
+        console.log(response);
+
+
+
+    });
+}
+
+
+function logarFacebook2() {
+
+
+    FB.getLoginStatus(function (response) {
+       if (response.status === 'connected') {
+                     fazerTeste(function(result,imgPerfil) {
+
+                   $('#imgCapa').hide();
+                   $('#tituloTeste').hide();
+                   document.getElementById('testDialog').innerHTML = '<img class="img-responsive" src="'+ imgPerfil + '"/><h1>' + result.titulo + '</h1><p>' + result.descricao + '</p><button type="button" class="refazerteste" onclick="logarFacebook()"> Refazer o teste </button><div class="fb-share-button" data-href="http://penseventos.com.br//descubra-qual-tipo-evento-ir-fim-de-semana?title=' + result.titulo.replaceAll('  ',' ').replaceAll(' ','+') + '&amp;description=' + result.descricao.replaceAll('  ',' ').replaceAll(' ','+') + '&amp;image=' + result.foto + '" data-layout="button" data-size="large" ><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpenseventos.com.br%2Fdescubra-qual-tipo-evento-ir-fim-de-semana%3Ftitle%3D' + result.titulo.replaceAll('  ',' ').replaceAll(' ','%2B') + '%26description%3Daaa%26image%3D' + result.foto + '&amp;src=sdkpreparse">Compartilhar</a></div>';
+                  FB.XFBML.parse();
+
+
+                   
+
+});
+
+    } else {
+        window.location = encodeURI("https://www.facebook.com/dialog/oauth?client_id=1259075417508360&redirect_uri=http://penseventos.com.br/descubra-qual-tipo-evento-ir-fim-de-semana&response_type=token&scope=public_profile,email");
+    }
+           
+        
+    });
+
+}
