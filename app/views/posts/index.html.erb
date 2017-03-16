@@ -1,38 +1,27 @@
-<% title 'Pense Eventos - O seu blog sobre eventos' %>
+<% title 'Pense Eventos - O seu blog sobre produção de eventos' %>
 <% meta_tag :title,  'Pense Eventos' %>
-<% meta_tag :description, 'Seu blog sobre eventos' %>
-<% meta_tag :description_twitter, 'Seu blog sobre eventos'  %>
+<% meta_tag :description, 'Seu blog sobre produção de eventos' %>
+<% meta_tag :description_twitter, 'Seu blog sobre produção de eventos'  %>
 <% meta_tag :url, request.original_url%>
 <% meta_tag :image, '/assets/banner_blog_v1.jpg' %>
 <div class="container">
-      	<div class="row">
-   		<div class="col-sm-9" id="posts">
-      			<div class="row">
-  				<% @posts.each do |post| %>
-					<div class="col-sm-6 home-post">
-						<img src="<%= post.main_image(:big) %>" class="img-responsive">
-						<h3 class="post-title"><%= link_to "#{post.title}", posts_show_path(post.id) %></h3>
-						<span class="nome-autor-e-data">Por <%= post.author %> |<%= PostsHelper.string_posted_time post %> atrás </span>
-						<p><%= truncate(post.description, length: 440, omission: '...', escape: false) %></p>
-						<%= link_to "Continue lendo", posts_show_path(post.id), class: "btn btn-default" %>
-					</div>
-  				<% end -%>
+	<div class="row">
+		<% @posts.each_with_index do |post,i| %>
+			<% if i%3 ==0%>
+				</div>
+				<div class="row">
+			<% end %>
+			<div class="col-sm-4 home-post">
+				<img src="<%= post.main_image(:big) %>" class="img-responsive">
+				<h3 class="post-title"><%= link_to "#{post.title}", posts_show_path(post.id) %></h3>
+				<span class="nome-autor-e-data">Por <%= post.author %> |<%= PostsHelper.string_posted_time post %> atrás </span>
+				<p class="descricao-post"><%= truncate(post.description, length: 440, omission: '...', escape: false) %></p>
+				<%= link_to "Continue lendo", posts_show_path(post.id), class: "btn btn-primary btn-fixo-continuelendo" %>
 			</div>
-      		</div>
-      		<div class="col-sm-3 sidebar">
-			<h4>Posts mais visualizados</h4>
-			<ol class="lista-visualizados">
-				<% @posts.order_by(:views.desc)[0..5].each do |post| %>
-					<li class="post-title"><%= link_to "#{post.title}", posts_show_path(post.id) %></li>
-				<% end -%>
-			</ol>
-			<h4>Tags</h4>
-			<% PostsHelper::can_shoot_tags?.each do |tag| %>
-	             	<span class="btn btn-default"><%= tag %></span>
-	            <% end %>
-		</div><!--/sidebar-->
-      	</div>
+		<% end -%>
+	</div>
 </div>
+
 <button type="button" style="display: none;" id="hellobar" class="btn btn-primary success" data-toggle="modal" data-target="#myModal"></button>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
@@ -41,16 +30,16 @@
           			<button type="button" class="close" data-dismiss="modal"aria-label="Close">
             				<span aria-hidden="true">&times;</span>
           			</button>
-          			<h4 class="modal-title" id="myModalLabel">Olá, Seja Bem Vindo</h4>
+          			<h4 class="modal-title" id="myModalLabel">Bem Vindo/a!</h4>
         		</div>
 		       <div class="modal-body">
 		             <div class="form-group">
-		             	Quer lembrar de tudo e ter um passo a passo para organizar um evento de sucesso? Baixe aqui nosso Checklist!
+		             	Quer lembrar de tudo e ter um passo a passo para organizar um evento de sucesso? <strong>Baixe aqui nosso Checklist!</strong>
 		             </div>
 		       </div>
         		<div class="modal-footer">
-          			<%= link_to "Eu Quero", class: "btn btn-primary" %>
-          			<button type="button" class="btn btn-default"data-dismiss="modal">Não, Obrigado</button>
+					<%= link_to "Eu Quero", "/baixe-aqui-seu-checklist-para-eventos",class: "btn btn-primary btn-lg" %>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Não, Obrigado</button>
         		</div>
       		</div>
 	</div>

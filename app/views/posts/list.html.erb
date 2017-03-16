@@ -2,6 +2,7 @@
 <div class="container">
 	<%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-default alignright" %>
 	<%= link_to "Novo", new_post_path,  class: "btn btn-default" %>
+	<%= link_to 'Lista de Leads (Não Filtrada)', users_path(format: :csv), class: "btn btn-default" %>
      	<% if @posts.present? %>
        	<div class="row listagemposts">
 			<ul>

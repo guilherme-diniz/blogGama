@@ -11,6 +11,7 @@
 //= require bootstrap-tagsinput
 //= require ./utils/jquery.justifiedGallery.min
 //= require ./utils/jquery.swipebox.min
+//= require ./utils/masonry.pkgd.min.js
 //= require ./utils/imagesloaded.pkgd.min
 //= require ./utils/wookmark.min
 //= require ./utils/typeahead

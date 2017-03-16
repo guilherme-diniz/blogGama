@@ -9,26 +9,26 @@
 	<header class="header-post" style="background-image: url('<%= @post.main_image(:medium) if @post.main_image.present?%>')">
 		<h1> <%= @post.title %></h1>
 		<h2> <%=@post.description %></h2>
-		<% @post.tags.each do |tag| %>
-			<span class="btn btn-default"><%= tag %></span>
-		<% end -%>
+		<!--<% @post.tags.each do |tag| %>
+			<span class="tag"><%= tag %></span>
+		<% end -%>-->
 	</header>
 	<%= render_shareable buttons: ['twitter', 'facebook', 'google_plus'], :turbolinks => true %>
 	<div class="row">
-		<div class="col-sm-9 single-post">
+		<div class="col-sm-12 single-post">
   			<%= @post.content.html_safe if @post.content %>
 		</div>
-		<div class="col-sm-3 sidebar">
+		<!--<div class="col-sm-3 sidebar">
 			<h4>Posts mais visualizados</h4>
-			<ol class="lista-visualizados">
+			<ul class="lista-visualizados">
 				<% @posts.each do |post| %>
 					<li class="post-title"><%= link_to "#{post.title}", posts_show_path(post.id) %></li>
 				<% end -%>
-			</ol>
-			<h4>Tags</h4>
+			</ul>
+			<!--<h4>Tags</h4>
 			<% PostsHelper::can_shoot_tags?.each do |tag| %>
-	             	<span class="btn btn-default"><%= tag %></span>
+	             	<span class="tag"><%= tag %></span>
 	            <% end %>
-		</div><!--/sidebar-->
+		</div>--><!--/sidebar-->
 	</div>
 </div>

@@ -6,16 +6,19 @@
 body {
 	background-color: #f8f8f8;
 	font-family: 'Lato', sans-serif;
+	font-size: 17px;
+	line-height: 1.68;
 }
+
 /* HEADER BLOG */
 /* Header do blog, presente na página inicial */
 .header-blog {
-	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), image-url('banner_blog_v1.jpg');
+	background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), image-url('banner_blog_v2.jpg');
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	color:#fff;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	margin-bottom: 20px;
 }
 .header-blog h1 {
@@ -38,7 +41,7 @@ body {
 }
 /* Header do blog, presente na páginas internas */
 .header-blog-interna {
-	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), image-url('banner_blog_v1.jpg');
+	background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), image-url('banner_blog_v2.jpg');
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	color:#fff;
@@ -59,27 +62,29 @@ body {
 }
 .header-blog-interna .logo {
 	display: block;
-	width: 100px;
+	width: 200px;
 	margin-left: 15px;
 }
 
 /* Header do post */
 .header-post {
-	background-position: center bottom;
+	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	color:#fff;
 	border: 10px solid #fff;
-	padding: 25px;
+	padding: 50px;
 	max-width: 100%;
+	margin-bottom: 15px;
 }
 .header-post h1 {
 	font-size: 30px;
 	font-weight: bold;
+	text-shadow: -2px 1px 1px rgba(0, 0, 0, 0.8);
 }
 .header-post h2 {
 	font-size: 15px;
-	font-weight: 300;
+	text-shadow: -2px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
 .btn-voltar {
@@ -150,7 +155,24 @@ body {
 
 /* Caixas de posts na tela inicial */
 .home-post {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	padding:20px;
+	box-shadow: 0px 7px 5px 0px rgba(50, 50, 50, 0.5);
+	min-height: 474px;
+}
+@media screen and (min-width: 1280px) {
+	.home-post {
+		margin: 20px;
+		width: 350px;
+	}
+}
+@media screen and (max-width: 767px) {
+	.home-post {
+		max-width: 95%;
+		margin-left: auto;
+		margin-right: auto;
+	}	
 }
 .home-post h3 {
 	font-size: 20px;
@@ -169,43 +191,93 @@ body {
     text-decoration: none;
 }
 
-.home-post .post-title a:hover
-{
+.home-post .post-title a:hover {
      color:#000;
 }
 
+.home-post .descricao-post {
+	font-size: 14px;
+}
+
 footer {
-	background-color: #000;
-	height: 50px;
+	background-color: #0082C7;
+	margin-top: 30px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+footer .feitocomamor {
+	float:right;
+	color:#fff;
+	font-size: 14px;
+}footer .feitocomamor i {
+	color: red;
+}
+
+footer .siga-facebook {
+	float: left;
+	color: #fff;
+	font-size: 14px;
+}footer .siga-facebook a i {
+	color: #fff;
+	text-decoration: none;
+	font-size: 33px;
+  	transition:all 0.6s ease-out;
+}footer .siga-facebook a:hover i {
+	color: #3b5998;;
 }
 
 /* Barra lateral */
 .sidebar {
-	background-color: rgba(240,240,240,1);
 	padding-top: 10px;
 	padding-bottom: 10px;
-	height: 900px;
 }
 .sidebar h4 {
 	font-size: 18px;
 	font-weight: bold;
 }
 
+.sidebar li.post-title {
+	list-style-type: none;
+	margin-left: -40px;
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+
 .sidebar li.post-title a {
     color: #000;
     text-decoration: none;
+   	transition:all 0.6s ease-out;
 }
 
 .sidebar li.post-title a:hover
 {
-     color:#000;
+     color:#009BDF;
      text-decoration:none;
 }
 
+.single-post {
+	margin-bottom: 33px;
+	text-align: justify;
+}
+
+.fb_iframe_widget span {
+	vertical-align: top !important;
+}
 .bootstrap-tagsinput {
 	display: block;
 }
 
+
+.btn-fixo-continuelendo {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-top:10px;
+	padding-bottom: 10px;
+	border-radius: 0;
+}
 .landing {
 	background-color: #f8f8f8;
 	background-image: image-url('bg-landing-01.jpg');
@@ -375,7 +447,6 @@ input[type="submit"]:hover {
 
             .compartilhar {
                 float:left;
-                float:right;
                 background-color:#0082C7;
                 width:200px;
                 text-align:center;

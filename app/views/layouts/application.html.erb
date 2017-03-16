@@ -58,11 +58,17 @@ request.original_url.include?("descubra-quem") %>
     <%= yield %>
 <% if not request.original_url.include?("admin") and not request.original_url.include?("baixe-aqui") and not request.original_url.include?("obrigado") and not request.original_url.include?("descubra-quem")  %>
     <footer>
+      <div class="container">
+        <div class="siga-facebook"><p>Já curtiu a nossa página no Facebook?</p>
+          <a href="https://www.facebook.com/penseventos/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+ </div>
+        <div class="feitocomamor">Feito com <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i> em Belo Horizonte</div>
+      </div>
     </footer>
 <% end -%>
 </body>
 
-<!--Google Analitcs-->
+<!--Google Analytics-->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
