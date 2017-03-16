@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-require 'csv'
 
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy]

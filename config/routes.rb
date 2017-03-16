@@ -31,10 +31,10 @@ Rails.application.routes.draw do
       get '/:id', action: :show , as: 'show'
       post '/download/:id', action: :download, as: 'download'
       get '/concluded/:id', action: :concluded, as: 'concluded'
-      get '/leads_list', action: :leads_list
     end
 
     namespace :users do
+      get '/index', action: :index
       get '/new', action: :new
     end
 

@@ -8,13 +8,6 @@
         <p>Faça aqui o download <strong>grátis</strong> do checklist que preparamos <strong>especialmente para você</strong>. Não perca tempo e comece agora mesmo a <strong>organizar seu evento de uma forma mais inteligente</strong></p>
         <%= form_for :user , url: '/obrigado-pelo-download', method: :post do |f|%>
           <%= f.hidden_field :file_type, value: 1 %>
-          <div class="form-group pessoafisicaoujuridica">
-            <%= f.radio_button :isPJ, true , checked:true%> Pessoa Jurídica
-          </div>
-          <div class="form-group pessoafisicaoujuridica">
-            <%= f.radio_button :isPJ, false %>Pessoa Física
-          </div>
-          <br style="clear:both">
           <div class="form-group">
             <label>E-mail*</label>
             <p class="help-block">Coloque seu e-mail aqui (se tiver corporativo é melhor ainda!)</p>

@@ -15,6 +15,15 @@ class User
   field :ip, type: String
 
 
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << ['Nome', 'Email', 'Tipo', 'IP', 'Data de Criacao']
+      all.each do |user|
+        csv << [user.name, user.email, (user.isPJ ? 'B2B' : 'B2C'), user.ip, user.created_at]
+      end
+    end
+  end
+
   ## Confirmable
   # field :confirmation_token,   type: String
   # field :confirmed_at,         type: Time
