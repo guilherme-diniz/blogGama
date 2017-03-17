@@ -5,7 +5,7 @@
 <div class="caixa-form-leads">
       <div class="caixa-form-leads-corpo">
         <h1>Baixe agora seu framework para eventos!</h1>
-        <p>Faça aqui o download <strong>grátis</strong> do framework que preparamos <strong>especialmente para você</strong>. Não perca tempo e comece agora mesmo a <strong>organizar seu evento de uma forma mais inteligente</strong></p>
+        <p>Nosso framework foi feito pensando justamente em <strong> organizar em um lugar só e de modo fácil </strong> todas as principais informações do seu evento. Baixe agora e <strong>facilite sua vida !</strong></p>
         <%= form_for :user , url: '/obrigado-pelo-download', method: :post do |f|%>
           <%= f.hidden_field :file_type, value: 3%>
           <div class="form-group">
@@ -22,6 +22,9 @@
             <label>Sobrenome*</label>
             <p class="help-block">Nos diga o seu sobrenome</p>
             <%= f.text_field 'last_name', class: "form-control", required: true%>
+          </div>
+          <div class="form-group">
+            <p class="help-block"> Não se preocupe nos odiamos SPAM assim como você. </p>
           </div>
           <%= f.submit "Fazer o download", class: "btn btn-success" %>
       <% end -%>
