@@ -5,21 +5,17 @@
 <% meta_tag :url, request.original_url%>
 <% meta_tag :image, '/assets/banner_blog_v1.jpg' %>
 <div class="container">
-	<div class="row">
 		<% @posts.each_with_index do |post,i| %>
-			<% if i%3 ==0%>
-				</div>
-				<div class="row">
-			<% end %>
-			<div class="col-sm-4 home-post">
-				<img src="<%= post.main_image(:big) %>" class="img-responsive">
-				<h3 class="post-title"><%= link_to "#{post.title}", posts_show_path(post.id) %></h3>
-				<span class="nome-autor-e-data">Por <%= post.author %> |<%= PostsHelper.string_posted_time post %> atrás </span>
-				<p class="descricao-post"><%= truncate(post.description, length: 440, omission: '...', escape: false) %></p>
-				<%= link_to "Continue lendo", posts_show_path(post.id), class: "btn btn-primary btn-fixo-continuelendo" %>
-			</div>
+                  <div class="row">
+      			     <div class="col-sm-12 home-post">
+      				<img src="<%= post.main_image(:big) %>" class="img-responsive">
+      				<h3 class="post-title"><%= link_to "#{post.title}", posts_show_path(post.id) %></h3>
+      				<span class="nome-autor-e-data">Por <%= post.author %> |<%= PostsHelper.string_posted_time post %> atrás </span>
+      				<p class="descricao-post"><%= truncate(post.description, length: 440, omission: '...', escape: false) %></p>
+      				<%= link_to "Continue lendo", posts_show_path(post.id), class: "btn btn-primary btn-fixo-continuelendo" %>
+      			     </div>
+                  </div>
 		<% end -%>
-	</div>
 </div>
 
 <button type="button" style="display: none;" id="hellobar" class="btn btn-primary success" data-toggle="modal" data-target="#myModal"></button>
